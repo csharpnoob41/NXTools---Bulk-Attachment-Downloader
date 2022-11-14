@@ -1,4 +1,4 @@
-﻿1) INTRO
+1) INTRO
 This tool allows you to download your constituent attachments in bulk from Blackbaud's Raiser's Edge NXT. 
 
 2) PREREQS
@@ -6,13 +6,14 @@ This application uses Blackbaud's SKY API to get the required information at run
 In order to run the application successfully, you will need to do the following:
 	
 	1) Create a Blackbaud Developer account 
-	2) Subscribe to their API service (a free account is fine, but will significantly increase the runtime, as you are limited to 25,000 calls in a 24HR period at time of writing)
+	2) Subscribe to their API service (a free account is fine, but will significantly increase the runtime, as you are limited to 25,000 calls in a 24HR period at 		time of writing)
 	3) Create an application 
 	4) Link the application to your Blackbaud Environment
 
 
 3) SETUP
 Once you've completed the tasks in section 2, you will need to load the information into the config.json file. The application will handle the rest of the work.
+	1) Load the client_id, client_secret, and your BB Dev Key to the config.Template.json file, and rename it to config.json
 
 4) RUNNING THE APPLICATION
 The program loads the configuration from the config file, gets required authentication information, and then does the following:
