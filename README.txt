@@ -15,7 +15,7 @@ In order to run the application successfully, you will need to do the following:
 
 3) SETUP
 Once you've completed the tasks in section 2, you will need to load the information into the config.json file. The application will handle the rest of the work.
-	1) Load the client_id, client_secret, and your BB Dev Key to the config.Template.json file, and rename it to config.json
+	1) Load the client_id, client_secret, and your BB Dev Key to the config.Template.json file, and rename it to config.json in the same location as the compiled executable. 
 
 4) RUNNING THE APPLICATION
 The program loads the configuration from the config file, gets required authentication information, and then does the following:
