@@ -8,6 +8,7 @@ In order to run the application successfully, you will need to do the following:
 	1) Create a Blackbaud Developer account 
 	2) Subscribe to their API service (a free account is fine, but will significantly increase the runtime, as you are limited to 25,000 calls in a 24HR period at 		time of writing)
 	3) Create an application 
+		3.a) Use http://localhost:5000 as your redirect_uri. Otherwise, the application will fail it's initial auth request. 
 	4) Link the application to your Blackbaud Environment
 
 
