@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+// See https://aka.ms/new-console-template for more information
 //using Newtonsoft.Json;
 using System.Text.Json;
 using System.Web;
@@ -23,6 +23,7 @@ internal class Program
         globalValues.Client_Secret = currentConfig.Client_Secret;
         globalValues.Client_ID = currentConfig.Client_ID;
         globalValues.Bbkey = currentConfig.BbKey;
+        globalValues.maxCalls = currentConfig.Maximum_Calls;
 
         Console.WriteLine($"Your Client secret is: {globalValues.Client_Secret}");
         Console.WriteLine($"Your Client ID is: {globalValues.Client_ID}");
@@ -44,7 +45,7 @@ internal class Program
                 WriteIndented = true
 
             };
-            string constituentPath = @$"{globalValues.currentPathPrefix}\constituents.json";
+            string constituentPath = @$"{globalValues.currentPathPrefix}\constituentList.json";
             string uri = "https://api.sky.blackbaud.com/constituent/v1/constituents";
             string _nextLink = string.Empty;
             int count = new int();
@@ -65,7 +66,7 @@ internal class Program
 
             if(File.Exists(constituentPath) && (new FileInfo(constituentPath).Length > 6))
             {
-                _constituentIDs = JsonSerializer.Deserialize<List<constituent>>(constituentPath);
+                _constituentIDs = JsonSerializer.Deserialize<List<constituent>>(await File.ReadAllTextAsync(constituentPath));
                 if(_constituentIDs.Count == _constituentResponse.count)
                 {
                     return;
@@ -76,6 +77,12 @@ internal class Program
                 }
 
             }
+            else if (!File.Exists(constituentPath))
+            {
+                File.WriteAllTextAsync(constituentPath,"");
+            }
+
+
             while (_constituentIDs.Count < _constituentResponse.count)
             {
                 _response = await client.ExecuteGetAsync(_request);
@@ -224,7 +231,7 @@ internal class Program
 
                         foreach(var att in _currConAttachList)
                         {
-                            downDir = $@"{globalValues.currentPathPrefix}\Blackbaud Downloads\Constituent Downloads\{obj.first}, {obj.last} - {obj.id}\";
+                            downDir = $@"{globalValues.currentPathPrefix}\Blackbaud Downloads\Constituent Downloads\{obj.last}, {obj.first} - {obj.id}\";
 
                             if (!Directory.Exists(downDir))
                             {
@@ -423,6 +430,8 @@ public class config
     public string BbKey { get; set; }
     public string Client_ID { get; set; }
     public string Client_Secret { get; set; }
+
+    public int Maximum_Calls { get; set; }
 }
 
 public class attachmentResponse
