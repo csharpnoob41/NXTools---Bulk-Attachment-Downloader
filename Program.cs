@@ -204,7 +204,7 @@ internal class Program
                     //Gets attachment response
                     string res = await response.Content.ReadAsStringAsync();
                     int responseInt = (int)response.StatusCode;
-                    globalValues.currentCalls++;
+                    //globalValues.currentCalls++;
 
                     _attachmentResponse = JsonSerializer.Deserialize<attachmentResponse>(res);
                     List<attachment> _currConAttachList = new List<attachment>();
