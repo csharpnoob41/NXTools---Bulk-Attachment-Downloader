@@ -1,3 +1,7 @@
+This tool is provided free of charge for non-profit organizations or vendors supporting non-profits. Please feel free to copy the source and use it in any projects you see fit. 
+
+Keep improving the world and changing lives. 
+
 1) INTRO
 This tool allows you to download your constituent attachments in bulk from Blackbaud's Raiser's Edge NXT. 
 
@@ -29,5 +33,9 @@ If your access token expires, the application should automatically refresh. If y
 The application will automatically update your constituent list per run, so if you need to quit, the application should be able to pick up where you left off at any of the above steps. 
 
 5) TROUBLESHOOTING
+If the application fails immediately after running, there's probably something wrong with the config file. Make sure text is surrounded by quotes.
 
-Nothing yet. 
+Most issues can be cleared up by either deleting the constituentList.json file, or the progress.json file. This will remove the app's ability to restart where you left off, but it will fix most common issues. 
+
+6) UPDATES
+Our organization is moving away from Blackbaud products soon. So this codebase can be considered abandoned past 2024. 
