@@ -1,5 +1,6 @@
 ﻿{
   "BbKey": "Put your Blackbaud developer's subscription code here",
   "Client_ID": "Put your application Client ID here",
-  "Client_Secret": "Put your application Client Secret here"
+  "Client_Secret": "Put your application Client Secret here",
+  "Maximum_Calls": 24999
 }
